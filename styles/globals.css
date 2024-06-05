@@ -8,6 +8,23 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marquee {
+  @apply overflow-hidden whitespace-nowrap;
+}
+
+.marquee-text {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 20px;
+  animation: marquee 15s linear infinite;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -30,4 +47,20 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.backgroundCover:hover .backgroundCoverRectangleImage{
+  display: none;
+} 
+
+.backgroundCoverImage{
+  display: none;
+}
+.backgroundContainer:hover .backgroundCoverImage{
+  display: inline;
+  animation: fadeIn 3s;
+}
+
+.backgroundContainer:hover .backgroundRectangleImage{
+  display: none;
 }
